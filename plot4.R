@@ -23,7 +23,7 @@ par(mfrow= c(2,2))
         plot(power$Time, power$Voltage, pch= NA, lines(power$Time, power$Voltage),
              xlab = "Date/Time", ylab = "Voltage")
 #plot3
-                power$Time<- as.POSIXct(pow$Time)
+                power$Time<- as.POSIXct(power$Time)
                 newpow<-gather(power, sub_metering, value, Sub_metering_1:Sub_metering_3, -Date,-Time, -Global_reactive_power, -Voltage, -Global_intensity )
                 newpow$sub_metering<- parse_numeric(newpow$sub_metering)
         plot(newpow$Time, newpow$value, type = "n", xlab = "", ylab = "Energy Sub Metering")
