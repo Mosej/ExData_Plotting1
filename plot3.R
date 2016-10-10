@@ -12,7 +12,7 @@ power$Date<-dmy(power$Date)
 #subsetting
 
 power<- subset(power, power$Date>= as.Date("2007-02-01") & power$Date<= as.Date("2007-02-02"))
-power$Time<- as.POSIXct(pow$Time)
+power$Time<- as.POSIXct(power$Time)
 newpow<-gather(power, sub_metering, value, Sub_metering_1:Sub_metering_3, -Date,-Time, -Global_reactive_power, -Voltage, -Global_intensity )
 newpow$sub_metering<- parse_numeric(newpow$sub_metering)
 png(filename = "plot3.png", width= 480, height=480)
